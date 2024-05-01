@@ -6,36 +6,61 @@ import org.springframework.stereotype.Service;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Liga;
 import rs.ac.bg.fon.ai.ProjekatKosarka.repo.LigaRepository;
 
-@Service	
+/**
+ * Sistemska operacija za cuvanje lige nasledjuje ApstraktnuSistemskuOperaciju
+ *
+ * @author Boban Todic
+ */
+@Service
 public class SOSacuvajLigu extends ApstraktnaSistemskaOperacija {
 
-	LigaRepository repository;
-	
-	@Autowired
-	public SOSacuvajLigu(LigaRepository repository) {
-		this.repository = repository;
-	}
-	@Override
-	protected void validate(Object o) throws Exception {
-		if(o instanceof Liga l) {
-			if(l.getDrzavaId()==null)
-				throw new IllegalArgumentException("Liga mora imati drzavu iz koje dolazi");
-			if(l.getNaziv().isBlank()) {
-				throw new IllegalArgumentException("Liga mora imati neki naziv");
-			}
-		}
-		else {
-			throw new IllegalArgumentException("Prosledjeni tip nije klase Liga");
-		}
-		
-	}
+    /**
+     * Repozitorijum za ligu
+     */
+    LigaRepository repository;
 
-	@Override
-	protected void izvrsavanjeOperacije(Object o) throws Exception {
-		Liga liga = (Liga)o;
-		repository.save(liga);
-		
-		
-	}
+    /**
+     * Konstruktor koji postavlja repozitorijum na vrednost prosledjenog
+     * parametra
+     *
+     * @param repository Repozitorijum igraca tipa LigaRepository
+     */
+    @Autowired
+    public SOSacuvajLigu(LigaRepository repository) {
+        this.repository = repository;
+    }
+
+    /**
+     * Validacija igraca pre samog cuvanja
+     * Objekat mora biti tipa Liga, da njegova drzava nije null, da naziv lige nije prazan
+     * @param o Objekat nad kojim se vrsi validacija
+     * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Liga,
+     * ako je naziv lige prazan ili ako je drzava null
+     */
+    @Override
+    protected void validate(Object o) throws Exception {
+        if (o instanceof Liga l) {
+            if (l.getDrzavaId() == null) {
+                throw new IllegalArgumentException("Liga mora imati drzavu iz koje dolazi");
+            }
+            if (l.getNaziv().isBlank()) {
+                throw new IllegalArgumentException("Liga mora imati neki naziv");
+            }
+        } else {
+            throw new IllegalArgumentException("Prosledjeni tip nije klase Liga");
+        }
+
+    }
+
+    /**
+     * Cuvanje lige u sistemu
+     * @param o Objekat koji se cuva
+     */
+    @Override
+    protected void izvrsavanjeOperacije(Object o) throws Exception {
+        Liga liga = (Liga) o;
+        repository.save(liga);
+
+    }
 
 }

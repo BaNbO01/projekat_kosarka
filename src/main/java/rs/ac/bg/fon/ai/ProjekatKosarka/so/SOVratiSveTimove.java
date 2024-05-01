@@ -9,33 +9,48 @@ import org.springframework.stereotype.Service;
 import rs.ac.bg.fon.ai.ProjekatKosarka.repo.TimRepository;
 
 /**
+ * Sistemska operacija za vracanje svih timova nasledjuje
+ * ApstraktnuSistemskuOperaciju
  *
- * @author Korisnik
+ * @author Boban Todic
  */
 
+@Service
+public class SOVratiSveTimove extends ApstraktnaSistemskaOperacija {
 
-@Service	
-public class SOVratiSveTimove extends ApstraktnaSistemskaOperacija  {
+    /**
+     * Repozitorijum za tim
+     */
+    TimRepository repository;
 
-	   TimRepository repository;
-	
-	@Autowired
-	public SOVratiSveTimove(TimRepository igracRepo) {
-		repository=igracRepo;
-	}
-	
-	@Override
-	protected void validate(Object o) throws Exception {
-	
-		
-	}
+     /**
+     * Konstruktor koji postavlja repozitorijum na vrednost prosledjenog
+     * parametra
+     *
+     * @param igracRepo Repozitorijum igraca tipa TimRepository
+     */
+    @Autowired
+    public SOVratiSveTimove(TimRepository igracRepo) {
+        repository = igracRepo;
+    }
 
-	@Override
-	protected void izvrsavanjeOperacije(Object o) throws Exception {
-		result = repository.findAll();
-		
-		
-	}
+    /**
+         * Validacija pre samog vracanja liga
+         * @param  o Objekat nad kojim se vrsi validacija
+         */
+    @Override
+    protected void validate(Object o) throws Exception {
 
-	
+    }
+ /**
+         * Vracanje liste svih timova
+         * @param o Objekat tipa cija se lista vraca
+         * 
+         */
+    @Override
+    protected void izvrsavanjeOperacije(Object o) throws Exception {
+        result = repository.findAll();
+
+    }
+
 }

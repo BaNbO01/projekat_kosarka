@@ -6,17 +6,42 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tabela;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Utakmica;
 import rs.ac.bg.fon.ai.ProjekatKosarka.repo.TabelaRepository;
 import rs.ac.bg.fon.ai.ProjekatKosarka.repo.UtakmicaRepository;
-
+/**
+ * Sistemska operacija za cuvanje utakmica nasledjuje ApstraktnuSistemskuOperaciju
+ *
+ * @author Boban Todic
+ */
 @Service
 public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
 
+      /**
+     * Repozitorijum za utakmicu
+     */
 	UtakmicaRepository repository;
+          /**
+     * Repozitorijum za tabelu
+     */
         TabelaRepository tabelaRepository;
+        /**
+         * Konstruktor koji postavlja vrednosti repozitorijuma na vrednosti prosledjenih parametara
+         * @param repository Repozitorijum tipa UtakmicaRepository
+         * @param tabelaRepository Repozitorijum tipa TabelaRepository
+         */
 	public SOSacuvajUtakmicu(UtakmicaRepository repository,TabelaRepository tabelaRepository) {
 	this.repository = repository;
         this.tabelaRepository = tabelaRepository;
 
 	}
+        
+        /**
+         * Validacija igraca pre samog cuvanja
+         * Prosledjeni objekat mora biti tipa Utakmica, njegovi timovi ne smeju biti null kao i njigovi id, ne sme biti null ni kolo
+         * 
+         * @param o Objekat nad kojim se vrsi validacija
+         * @throws java.lang.IllegalArgumentException ukoliko su timovi null,
+         * njihovi id null, 
+         * ako je kolo null
+         */
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Utakmica u) {
@@ -29,6 +54,12 @@ public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
 		
 	}
 
+        /**
+         * Cuvanje utakmice u sistem
+         * To istovremeno cuva i promene vezane za Tabelu lige tih ekipa nakon sacuvanih utakmica
+         * @param o Objekat koji se cuva
+         * 
+         */
 	@Override
 	protected void izvrsavanjeOperacije(Object o) throws Exception {
 		Utakmica utakmica = (Utakmica)o;
