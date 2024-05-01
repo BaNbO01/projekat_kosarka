@@ -20,8 +20,10 @@ import jakarta.persistence.Table;
 import org.springframework.stereotype.Component;
 
 /**
- *
- * @author Korisnik
+ *Klasa Kolo prestavlja jedno kolo odredjene lige klase Liga
+ * Sadrzi ligu na koju se kolo odnosi i id kola
+ * 
+ * @author Boban Todic
  */
 @Component
 @Entity
@@ -32,33 +34,64 @@ import org.springframework.stereotype.Component;
     @NamedQuery(name = "Kolo.findByLigaId", query = "SELECT k FROM Kolo k WHERE k.koloPK.ligaId = :ligaId")})
 public class Kolo  {
 
+    /**
+     * Predstavlja slozeni primatni kljuc kola tipa KoloPK
+     */
     @EmbeddedId
     protected KoloPK koloPK;
+    
+    /**
+     * Liga na koju se kolo odnosi
+     */
     @JoinColumn(name = "ligaid", referencedColumnName = "ligaid", insertable = false, updatable = false)
     @ManyToOne
     private Liga liga;
     
 
+    /**
+     * Podrazumevani konstruktor klase Kolo
+     */
     public Kolo() {
     }
 
+    
+    /**
+     * Konstruktor koji prima slozeni primarni kljuc kao parametar
+     * @param koloPK Objekat tipa KoloPk
+     */
     public Kolo(KoloPK koloPK) {
         this.koloPK = koloPK;
     }
 
 
+    /**
+     * Vraca slozeni primarni kljuc kao tip KoloPK
+     * @return primarni kljuc kao objekat KoloPK
+     */
     public KoloPK getKoloPK() {
         return koloPK;
     }
 
+    /**
+     * Postavlja primarni kljuc kola na vrednost prosledjenog parametra
+     * @param koloPK Objekat tipa KoloPK
+     */
     public void setKoloPK(KoloPK koloPK) {
         this.koloPK = koloPK;
     }
 
+    /**
+     * Vraca ligu na koju se kolo odnosi kao tip Liga
+     * @return Ligu kola
+     */
     public Liga getLiga() {
         return liga;
     }
 
+    /**
+     * Postavlja ligu kola na vrednost prosledjenog parametra
+     * @param liga Objekat tipa Liga
+     */
     public void setLiga(Liga liga) {
         this.liga = liga;
     }
@@ -71,6 +104,14 @@ public class Kolo  {
 		return Objects.hash(koloPK);
 	}
 
+        
+        /**
+         * Proverava da li su dva objekata jednaka
+         * @param obj objekat sa kojim se poredi
+         * @return true - ako oba objekta pokazuju na istu memorisjku lokaciju,
+         * ili ako su iste klase i imaju istu vrednost primarnog kljuca (id lige i id kola)
+         * false - u ostalim slucajevima
+         */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -83,6 +124,10 @@ public class Kolo  {
 		return Objects.equals(koloPK, other.koloPK);
 	}
 
+        /**
+         * Vraca id kola kao String
+         * @return Id kola tipa String
+         */
 	@Override
 	public String toString() {
 		return koloPK.getKoloId()+ ". kolo";

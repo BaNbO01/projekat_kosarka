@@ -26,7 +26,11 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author Korisnik
+ * 
+ * Klasa Igraci koja opisuje kosarkasa sa svojim karakteristikama
+ * Svaki igrac je ili deo nekog tima ili slobodan igrac i za njega se cuvaju opste informacije,
+ * pored imena i prezimena i datuma rodjenja, cuva se broj na dresu, visina, pozicija koju igra, iz koje zemlje dolazi
+ * @author Boban Todic
  */
 @Component
 @Entity
@@ -43,105 +47,221 @@ import org.springframework.stereotype.Component;
     @NamedQuery(name = "Igraci.findByPozicija", query = "SELECT i FROM Igraci i WHERE i.pozicija = :pozicija")})
 public class Igraci {
 
+    /**
+     * Id igraca kao Long
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "igracid")
     private Long igracID;
+    
+    /**
+     * Ime igraca kao String
+     */
     @Column(name = "ime")
     private String ime;
+    
+    /**
+     * Prezime igraca kao String
+     */
     @Column(name = "prezime")
     private String prezime;
+    /**
+     * Broj na dresu kao Integer
+     */
     @Column(name = "broj")
     private Integer broj;
+    
+    /**
+     * Datum rodjenja igraca
+     */
     @Column(name = "datum")
     private Date datumRodjenja;
+    
+    /**
+     * Visina igraca izrazena u centimetrima
+     */
     @Column(name = "visina")
     private Double visina;
+    
+    /**
+     * Pozicija igraca u igri [PG,SG,SF,PF,C]
+     */
     @Enumerated(EnumType.STRING)
     @Column(name = "pozicija")
     private Pozicija pozicija;
+    /**
+     * Drzava iz koje dolazi igrac
+     */
     @JoinColumn(name = "drzavaid", referencedColumnName = "drzavaid")
     @ManyToOne
     private Drzava drzavaId;
+    
+    /**
+     * Tim za koji igra igrac
+     */
     @JoinColumn(name = "timid", referencedColumnName = "timiD")
     @ManyToOne
     private Tim timId;
 
+    
+    /**
+     * Podrazumevani konstruktor klase Igraci
+     */
     public Igraci() {
     }
 
+    
+    /**
+     * Konstruktor koji kao parametar prima id igraca
+     * @param igracID Id igraca
+     */
     public Igraci(Long igracID) {
         this.igracID = igracID;
     }
 
+    
+    /**
+     * Vraca id igraca
+     * @return Id igraca
+     */
     public Long getIgracID() {
         return igracID;
     }
 
+    /**
+     * Postavlja id igraca na prosledjenu vrednost parametra
+     * @param igracID Id igraca
+     */
     public void setIgracID(Long igracID) {
         this.igracID = igracID;
     }
-
+/**
+ * Vraca ime igraca kao String
+ * @return Ime igraca
+ */
     public String getIme() {
         return ime;
     }
+    
+    /**
+     * Postavlja ime igraca na vrednost prosledjenog parametra
+     * @param ime Ime igraca
+     * 
+     */
 
     public void setIme(String ime) {
         this.ime = ime;
     }
 
+    /**
+     * Vraca prezime igraca kao String
+     * @return Prezime igraca
+     */
     public String getPrezime() {
         return prezime;
     }
 
+    /**
+     * Postavlja prezime na vrednost prosledjenog parametra
+     * @param prezime Prezime igraca
+     */
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
 
+    /**
+     * Vraca broj na dresu igraca
+     * @return Broj na dresu
+     */
     public Integer getBroj() {
         return broj;
     }
 
+    /**
+     * Postavlja broj igraca na vrednost prosledjenog parametra
+     * @param broj Broj na dresu
+     */
     public void setBroj(Integer broj) {
         this.broj = broj;
     }
 
+    /**
+     * Vraca datum rodjenja igraca kao Date
+     * @return Datum rodjenja
+     */
     public Date getDatumRodjenja() {
         return datumRodjenja;
     }
 
+    /**
+     * Postavlja datum rodjenja na vrednost prosledjenog parametra
+     * @param datumRodjenja datum rodjenja igraca
+     */
     public void setDatumRodjenja(Date datumRodjenja) {
         this.datumRodjenja = datumRodjenja;
     }
 
+    /**
+     * Vraca visinu igraca u centimetrima
+     * @return Visina igraca
+     */
     public Double getVisina() {
         return visina;
     }
 
+    /**
+     * Postavlja visinu igraca na vrednost prosledjenog parametra
+     * @param visina Visina igraca
+     */
     public void setVisina(Double visina) {
         this.visina = visina;
     }
 
+    /**
+     * Vraca poziciju igraca
+     * @return Pozicija igraca
+     */
     public Pozicija getPozicija() {
         return pozicija;
     }
 
+    /**
+     * Postavlja poziciju igraca na vrednost prosledjenog parametra
+     * @param pozicija Pozicija igraca
+     */
     public void setPozicija(Pozicija pozicija) {
         this.pozicija = pozicija;
     }
 
+    /**
+     * Vraca objekat Drzava iz koje dolazi igrac 
+     * @return Drzavu kao objekat
+     */
     public Drzava getDrzavaId() {
         return drzavaId;
     }
 
+    /**
+     * Postavlja kao objekat Drzava na vrednost prosledjenog parametra
+     * @param drzavaId Objekat drzava klase Drzava
+     */
     public void setDrzavaId(Drzava drzavaId) {
         this.drzavaId = drzavaId;
     }
 
+    /**
+     * Vraca tim kao objekat za koga nastupa igrac
+     * @return tim igraca kao objekat klase Tim
+     */
     public Tim getTimId() {
         return timId;
     }
 
+    /**
+     * Postavlja tim igraca na vrednost prosledjenog parametra
+     * @param timId Tim objekat klase Tim
+     */
     public void setTimId(Tim timId) {
         this.timId = timId;
     }
@@ -153,6 +273,14 @@ public class Igraci {
 		return Objects.hash(igracID);
 	}
 
+        
+        /**
+         * Proverava da li su dva objekta jednaka
+         * @param obj objekat sa kojim se poredi
+         * @return true - ako oba objekta pokazuju na istu memorisjku
+         * lokaciju, ili ako su objekti iste klase i imaju isti id Igraca
+         * false - u ostalim slucajevima
+         */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -165,6 +293,11 @@ public class Igraci {
 		return Objects.equals(igracID, other.igracID);
 	}
 
+        
+        /**
+         * Vraca String reprezentaciju objekta Igraci
+         * @return Objekat tipa Igraci kao String
+         */
 	@Override
 	public String toString() {
 		return "Igraci [igracID=" + igracID + ", ime=" + ime + ", prezime=" + prezime + ", broj=" + broj

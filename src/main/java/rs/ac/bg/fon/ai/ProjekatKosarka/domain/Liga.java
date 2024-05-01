@@ -19,8 +19,10 @@ import jakarta.persistence.Table;
 import org.springframework.stereotype.Component;
 
 /**
- *
- * @author Korisnik
+ * Klasa Liga predstavlja kosarkasku ligu za koju se beleze rezultati utakmica, koja ima odredjeni broj odredjenih kola i
+ * preko koje moze da se vidi stanje tabele
+ * Sadrzi id lige, naziv same lige i drzavu iz koje liga dolazi
+ * @author Boban Todic
  */
 @Component
 @Entity
@@ -31,44 +33,87 @@ import org.springframework.stereotype.Component;
     @NamedQuery(name = "Liga.findByNaziv", query = "SELECT l FROM Liga l WHERE l.naziv = :naziv")})
 public class Liga {
 
+    /**
+     * Id lige tipa Long
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ligaid")
     private Long ligaId;
+    
+    /**
+     * Naziv lige tipa String
+     */
     @Column(name = "naziv")
     private String naziv;
+    
+    /**
+     * Drzava iz koje dolazi liga
+     */
     @JoinColumn(name = "drzavaid", referencedColumnName = "drzavaid")
     @ManyToOne
     private Drzava drzavaId;
 
+    /**
+     * Podrazumevani konstruktor
+     */
     public Liga() {
     }
 
+    /**
+     * Konstruktor koji prihvata id lige kao parametar
+     * @param ligaId Id lige tipa Long
+     */
     public Liga(Long ligaId) {
         this.ligaId = ligaId;
     }
 
+    /**
+     * Vraca id lige kao Long
+     * @return Id lige
+     */
     public Long getLigaId() {
         return ligaId;
     }
 
+    /**
+     * Postavlja id lige na vrednost prosledjenog parametra
+     * @param ligaId Id lige tipa Long
+     */
     public void setLigaId(Long ligaId) {
         this.ligaId = ligaId;
     }
 
+    /**
+     * Vraca naziv lige tipa String
+     * @return Naziv lige
+     */
     public String getNaziv() {
         return naziv;
     }
 
+    
+    /**
+     * Postavlja naziv lige na vrednost prosledjenog parametra
+     * @param naziv Naziv lige
+     */
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
 
+    /**
+     * Vraca tip Drzava i predstavlja drzavu iz koje dolazi liga
+     * @return Drzava iz koje dolazi liga
+     */
     public Drzava getDrzavaId() {
         return drzavaId;
     }
 
+    /**
+     * Postavlja drzavu iz koje dolazi liga na vrednost unetog parametra
+     * @param drzavaId Objekat klase Drzava
+     */
     public void setDrzavaId(Drzava drzavaId) {
         this.drzavaId = drzavaId;
     }
@@ -78,6 +123,12 @@ public class Liga {
 		return Objects.hash(ligaId);
 	}
 
+        /**
+         * Proverava da li su dva objekta jednaka
+         * @param obj objekat sa kojim se poredi
+         * @return true - ako oba objekta pokazuju na istu memorijsku lokaciju
+         * ili ako su objekti iste klase i imaju istu vrednost id lige
+         */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -90,6 +141,10 @@ public class Liga {
 		return Objects.equals(ligaId, other.ligaId);
 	}
 
+        /**
+         * Vraca String reprezentaciju objekta klase Liga sa nazivom lige i drzavom
+         * @return Objekat Liga kao String
+         */
 	@Override
 	public String toString() {
 		return  naziv + " " + drzavaId;
