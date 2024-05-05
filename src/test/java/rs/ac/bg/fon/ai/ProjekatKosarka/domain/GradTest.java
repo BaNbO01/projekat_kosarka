@@ -61,7 +61,28 @@ class GradTest {
 		g1.setGradPK(new GradPK());
 		assertTrue(g1.toString().contains("Beograd"));
 	}
+	
+	@Test
+	void testEqualsRazlicitaKlasa() {
+		
+		assertFalse(g1.equals(new Object()));
+		
+	}
+	
+	@Test
+	void testEqualsIstaLokacija() {
+		g2 = g1;
+		assertTrue(g1.equals(g2));
+		
+	}
 
+	
+	@Test
+	void testEqualsNull() {
+		
+		assertFalse(g1.equals(null));
+		
+	}
 	@ParameterizedTest
 	@CsvSource({
 		"1,2,1,2,true",

@@ -49,7 +49,27 @@ class GradPKTest {
 		gradPK1.setDrzavaID(1);
 		assertEquals(1,gradPK1.getDrzavaID());
 	}
-
+	
+	
+	@Test
+	void testEqualsIstaLokacija() {
+		gradPK2 = gradPK1;
+		assertTrue(gradPK1.equals(gradPK2));
+		
+	}
+	@Test
+	void testEqualsRazlicitaKlasa() {
+		
+		assertFalse(gradPK1.equals(new Object()));
+		
+	}
+	@Test
+	void testEqualsNull() {
+		
+		assertFalse(gradPK1.equals(null));
+		
+	}
+	
 	@ParameterizedTest
 	@CsvSource({
 		"1,2,1,2,true",
