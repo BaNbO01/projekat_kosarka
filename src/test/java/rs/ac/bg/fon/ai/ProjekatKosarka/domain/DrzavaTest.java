@@ -30,28 +30,28 @@ class DrzavaTest {
 	void testDrzava() {
 		Drzava drzava  = new Drzava();
 		assertNotNull(drzava);
-		assertEquals(drzava.getDrzavaId(), null);
-		assertEquals(drzava.getNaziv(), null);
+		assertEquals(null, drzava.getDrzavaId());
+		assertEquals(null,drzava.getNaziv());
 	}
 
 	@Test
 	void testDrzavaLong() {
 		Drzava drzava  = new Drzava(1L);
 		assertNotNull(drzava);
-		assertEquals(drzava.getDrzavaId(), 1L);
-		assertEquals(drzava.getNaziv(), null);
+		assertEquals(1L,drzava.getDrzavaId());
+		assertEquals(null,drzava.getNaziv());
 	}
 
 	@Test
 	void testSetDrzavaId() {
 		d1.setDrzavaId(1L);
-		assertEquals(d1.getDrzavaId(), 1L);
+		assertEquals(1L,d1.getDrzavaId());
 	}
 
 	@Test
 	void testSetNaziv() {
 		d1.setNaziv("Naziv");
-		assertEquals(d1.getNaziv(), "Naziv");
+		assertEquals("Naziv",d1.getNaziv());
 	}
 
 	@ParameterizedTest
