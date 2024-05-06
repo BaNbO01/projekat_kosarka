@@ -4,11 +4,10 @@
  */
 package rs.ac.bg.fon.ai.ProjekatKosarka.view;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-
+import rs.ac.bg.fon.ai.ProjekatKosarka.view.igraci.IgraciPretraziFrame;
 
 /**
  *
@@ -20,12 +19,11 @@ public class MainFrame extends javax.swing.JFrame {
     private boolean themeDark;
     @Autowired
     private ApplicationContext applicationContext;
-
+    private IgraciPretraziFrame igraciPretraziFrame;
 
     /**
      * Creates new form MainFrame
      */
-
     public MainFrame() {
         initComponents();
         setLocationRelativeTo(null);
@@ -151,32 +149,33 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       
+        igraciPretraziFrame = applicationContext.getBean(IgraciPretraziFrame.class);
+        igraciPretraziFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void lblThemeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThemeMouseClicked
-        
-       
+
+
     }//GEN-LAST:event_lblThemeMouseClicked
 
     /**
@@ -198,6 +197,6 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void prepareForm() {
-       
+
     }
 }
