@@ -9,17 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Drzava;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Igraci;
+import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Kolo;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Liga;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tabela;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tim;
+import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Utakmica;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOIzbrisiIgraca;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajIgraca;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajUtakmicu;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiIgraceFiltrirane;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiKoloLige;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiStanjeTabeleLige;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveDrzave;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveIgrace;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveLige;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveTimove;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiUtakmiceKola;
 
 /**
  *
@@ -29,13 +34,15 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveTimove;
 public class UIController {
 
     private SOVratiIgraceFiltrirane sOVratiIgraceFiltrirane;
-    private SOVratiSveIgrace sOVratiSveIgrace;
     private SOSacuvajIgraca sOSacuvajIgraca;
     private SOIzbrisiIgraca sOIzbrisiIgraca;
     private SOVratiSveDrzave soVratiSveDrzave;
     private SOVratiSveTimove soVratiSveTimove;
     private SOVratiStanjeTabeleLige sOVratiStanjeTabeleLige;
     private SOVratiSveLige sOVratiSveLige;
+    private SOVratiKoloLige soVratiKoloLige;
+    private SOSacuvajUtakmicu soSacuvajUtakmicu;
+    private SOVratiUtakmiceKola soVratiUtakmiceKola;
 
     @Autowired
     public void setsOVratiIgraceFiltrirane(SOVratiIgraceFiltrirane sOVratiIgraceFiltrirane) {
@@ -44,7 +51,6 @@ public class UIController {
 
     @Autowired
     public void setsOVratiSveIgrace(SOVratiSveIgrace sOVratiSveIgrace) {
-        this.sOVratiSveIgrace = sOVratiSveIgrace;
     }
 
     @Autowired
@@ -91,6 +97,21 @@ public class UIController {
         this.sOVratiSveLige = sOVratiSveLige;
     }
 
+    @Autowired
+    public void setSoSacuvajUtakmicu(SOSacuvajUtakmicu soSacuvajUtakmicu) {
+        this.soSacuvajUtakmicu = soSacuvajUtakmicu;
+    }
+
+    @Autowired
+    public void setSoVratiUtakmiceKola(SOVratiUtakmiceKola soVratiUtakmiceKola) {
+        this.soVratiUtakmiceKola = soVratiUtakmiceKola;
+    }
+
+    @Autowired
+    public void setSoVratiKoloLige(SOVratiKoloLige soVratiKoloLige) {
+        this.soVratiKoloLige = soVratiKoloLige;
+    }
+
     public List<Tim> vratiSveTimove(Tim tim) throws Exception {
         soVratiSveTimove.izvrsi(tim);
         return (List<Tim>) soVratiSveTimove.getResult();
@@ -111,4 +132,19 @@ public class UIController {
         sOVratiStanjeTabeleLige.izvrsi(tabela);
         return (List<Tabela>) sOVratiStanjeTabeleLige.getResult();
     }
+
+    public void sacuvaj(Utakmica utakmica) throws Exception {
+        soSacuvajUtakmicu.izvrsi(utakmica);
+    }
+
+    public List<Kolo> vratiKolaLige(Kolo kolo) throws Exception {
+        soVratiKoloLige.izvrsi(kolo);
+        return (List<Kolo>) soVratiKoloLige.getResult();
+    }
+
+    public List<Utakmica> vratiUtakmiceKola(Utakmica utakmica) throws Exception {
+        soVratiUtakmiceKola.izvrsi(utakmica);
+        return (List<Utakmica>) soVratiUtakmiceKola.getResult();
+    }
+
 }

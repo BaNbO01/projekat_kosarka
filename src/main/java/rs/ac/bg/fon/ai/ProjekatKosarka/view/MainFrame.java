@@ -9,6 +9,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.igraci.IgraciPretraziFrame;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.tabela_lige.ShowLeageTableForm;
+import rs.ac.bg.fon.ai.ProjekatKosarka.view.utakmice.CreateGameForm;
+import rs.ac.bg.fon.ai.ProjekatKosarka.view.utakmice.ShowMatchesByFixtureFrame;
 
 /**
  *
@@ -22,6 +24,8 @@ public class MainFrame extends javax.swing.JFrame {
     private ApplicationContext applicationContext;
     private IgraciPretraziFrame igraciPretraziFrame;
     private ShowLeageTableForm showLeageTableForm;
+    private CreateGameForm createGameForm;
+    private ShowMatchesByFixtureFrame showMatchesByFixtureFrame;
 
     /**
      * Creates new form MainFrame
@@ -161,11 +165,13 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
+        showMatchesByFixtureFrame = applicationContext.getBean(ShowMatchesByFixtureFrame.class);
+        showMatchesByFixtureFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-
+        createGameForm = applicationContext.getBean(CreateGameForm.class);
+        createGameForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed

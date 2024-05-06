@@ -2,6 +2,7 @@ package rs.ac.bg.fon.ai.ProjekatKosarka.so;
 
 import org.springframework.stereotype.Service;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tabela;
+import rs.ac.bg.fon.ai.ProjekatKosarka.domain.TabelaPK;
 
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Utakmica;
 import rs.ac.bg.fon.ai.ProjekatKosarka.repo.TabelaRepository;
@@ -67,6 +68,32 @@ public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
                 Integer kosRazlika;
                 Tabela tabelaTim1 = tabelaRepository.returnByTeamId(utakmica.getTimid1().getTimId(),utakmica.getKolo().getKoloPK().getLigaId());
                 Tabela tabelaTim2 = tabelaRepository.returnByTeamId(utakmica.getTimid2().getTimId(),utakmica.getKolo().getKoloPK().getLigaId());
+               
+                if(tabelaTim1==null){
+                    tabelaTim1 = new Tabela();
+                    tabelaTim1.setTimid(utakmica.getTimid1());
+                    tabelaTim1.setBrojPobeda(0);
+                    tabelaTim1.setBrojPobeda(0);
+                    tabelaTim1.setKosRazlika(0);
+                    tabelaTim1.setBrojPoraza(0);
+                    tabelaTim1.setLiga(utakmica.getKolo().getLiga());
+                    TabelaPK pk1 = new TabelaPK(utakmica.getTimid1().getTimId(), utakmica.getUtakmicaPK().getLigaId());
+                    tabelaTim1.setTabelaPK(pk1);
+                }
+               
+                 if(tabelaTim2==null){
+                    tabelaTim2 = new Tabela();
+                    tabelaTim2.setBrojPobeda(0);
+                    tabelaTim2.setTimid(utakmica.getTimid2());
+                    tabelaTim2.setBrojPobeda(0);
+                    tabelaTim2.setKosRazlika(0);
+                    tabelaTim2.setBrojPoraza(0);
+                    tabelaTim2.setLiga(utakmica.getKolo().getLiga());
+                    TabelaPK pk2 = new TabelaPK(utakmica.getTimid2().getTimId(), utakmica.getUtakmicaPK().getLigaId());
+                    tabelaTim2.setTabelaPK(pk2);
+                }
+                
+                
                 if(utakmica.getBrojKosevaTima1()>utakmica.getBrojKosevaTima2()){
                     tabelaTim2.setBrojPoraza(tabelaTim2.getBrojPoraza()+1);
                     tabelaTim1.setBrojPobeda(tabelaTim1.getBrojPobeda() + 1);
