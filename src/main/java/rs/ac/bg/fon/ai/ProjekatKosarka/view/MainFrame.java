@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.igraci.IgraciPretraziFrame;
+import rs.ac.bg.fon.ai.ProjekatKosarka.view.tabela_lige.ShowLeageTableForm;
 
 /**
  *
@@ -20,6 +21,7 @@ public class MainFrame extends javax.swing.JFrame {
     @Autowired
     private ApplicationContext applicationContext;
     private IgraciPretraziFrame igraciPretraziFrame;
+    private ShowLeageTableForm showLeageTableForm;
 
     /**
      * Creates new form MainFrame
@@ -154,7 +156,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
+        showLeageTableForm = applicationContext.getBean(ShowLeageTableForm.class);
+        showLeageTableForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

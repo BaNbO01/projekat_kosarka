@@ -9,12 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Drzava;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Igraci;
+import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Liga;
+import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tabela;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tim;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOIzbrisiIgraca;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajIgraca;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiIgraceFiltrirane;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiStanjeTabeleLige;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveDrzave;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveIgrace;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveLige;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiSveTimove;
 
 /**
@@ -30,6 +34,8 @@ public class UIController {
     private SOIzbrisiIgraca sOIzbrisiIgraca;
     private SOVratiSveDrzave soVratiSveDrzave;
     private SOVratiSveTimove soVratiSveTimove;
+    private SOVratiStanjeTabeleLige sOVratiStanjeTabeleLige;
+    private SOVratiSveLige sOVratiSveLige;
 
     @Autowired
     public void setsOVratiIgraceFiltrirane(SOVratiIgraceFiltrirane sOVratiIgraceFiltrirane) {
@@ -74,16 +80,35 @@ public class UIController {
     public void setSOVratiSveTimove(SOVratiSveTimove SOVratiSveTimove) {
         this.soVratiSveTimove = SOVratiSveTimove;
     }
-    
-    
+
+    @Autowired
+    public void setsOVratiStanjeTabeleLige(SOVratiStanjeTabeleLige sOVratiStanjeTabeleLige) {
+        this.sOVratiStanjeTabeleLige = sOVratiStanjeTabeleLige;
+    }
+
+    @Autowired
+    public void setsOVratiSveLige(SOVratiSveLige sOVratiSveLige) {
+        this.sOVratiSveLige = sOVratiSveLige;
+    }
+
     public List<Tim> vratiSveTimove(Tim tim) throws Exception {
         soVratiSveTimove.izvrsi(tim);
         return (List<Tim>) soVratiSveTimove.getResult();
-        
+
     }
 
     public List<Drzava> vratiDrzave(Drzava drzava) throws Exception {
         soVratiSveDrzave.izvrsi(drzava);
         return (List<Drzava>) soVratiSveDrzave.getResult();
+    }
+
+    public List<Liga> vratiSveLige(Liga liga) throws Exception {
+        sOVratiSveLige.izvrsi(liga);
+        return (List<Liga>) sOVratiSveLige.getResult();
+    }
+
+    public List<Tabela> vratiStanjeTabeleLige(Tabela tabela) throws Exception {
+        sOVratiStanjeTabeleLige.izvrsi(tabela);
+        return (List<Tabela>) sOVratiStanjeTabeleLige.getResult();
     }
 }
