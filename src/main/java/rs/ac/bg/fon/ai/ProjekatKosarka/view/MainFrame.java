@@ -4,6 +4,11 @@
  */
 package rs.ac.bg.fon.ai.ProjekatKosarka.view;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -49,8 +54,8 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTheme = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblTheme = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -62,17 +67,19 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jLabel1.setText("Izaberi temu");
 
         lblTheme.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         lblTheme.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moon.png"))); // NOI18N
         lblTheme.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblThemeMouseClicked(evt);
             }
         });
-
-        jLabel1.setText("Izaberi temu");
 
         jMenu1.setText("Igraci");
 
@@ -137,20 +144,22 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(lblTheme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(71, 71, 71))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(158, 158, 158)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTheme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(56, 56, 56))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTheme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
+                .addComponent(lblTheme, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39))
         );
@@ -190,7 +199,24 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void lblThemeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThemeMouseClicked
 
+        try {
+            if(themeDark){
+                lblTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moon.png")));
+                UIManager.setLookAndFeel(new FlatLightLaf());
+                themeDark=false;
+            }
+            else{
+                themeDark = true;
+                lblTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sun.png")));
+                UIManager.setLookAndFeel(new FlatDarkLaf());
+            }
+            SwingUtilities.updateComponentTreeUI(this);
+            pack();
 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_lblThemeMouseClicked
 
     /**
@@ -212,6 +238,12 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void prepareForm() {
+        try {
+            lblTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moon.png")));
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, e.getMessage());
 
+        }
     }
 }
