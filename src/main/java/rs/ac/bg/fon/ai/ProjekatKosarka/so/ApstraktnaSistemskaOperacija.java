@@ -9,18 +9,32 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Log;
 /**
  * Klasa ApstraktnaSistemskaOperacija je opsta apstraktna klasa koju svaka
  * sistemska operacija nasledjuje Odredjuje sta svaka sistemska operacija mora
- * da ispostuje da bi bila deo sistema
+ * da ispostuje da bi bila deo sistema.
+ * Posle svake sistemske operacije, belezi se u json fajl 
+ * da li je uspesno i kada svaka od sistemskih operacija bila izvrsena
  *
  * @author Boban Todic
  */
 public abstract class ApstraktnaSistemskaOperacija {
 
-    
+   /**
+    * Aplikacijski kontekst springa
+    */ 
     @Autowired
     private ApplicationContext applicationContext;
+    /**
+     * Oznacava da li se sistemska operacija izvrsila uspesno ili ne
+     */
     private boolean successfull=true;
         
+    /**
+     * Sluzi za poziv json logera sistemske operacije
+     */
 	private JSONLog jsonl;
+        /**
+         * Pomocni objekat log u koji se upisiju podaci o sistemskoj operaciji,
+         * i koji se kasnije smesta u json fajl
+         */
         @Autowired
         private Log log;
     
@@ -65,6 +79,9 @@ public abstract class ApstraktnaSistemskaOperacija {
      * pozvati Template method pattern upotrebljen da se mora postovati
      * algoritam izvrsavanja Prvo se mora proci validacija pa onda se prelazi na
      * samo izvrsavanje
+     *  Bez obzira da li sistemska operacija bila uspesna ili ne, na kraju se izvrsava finnaly blok
+     * u kome se poziva json loger da upise koja sistemska operacija je izvrsena,
+     * u kom vremenskom trenutku i da li je uspesna
      *
      * @param o Objekat nad kojim se izvrsava operacija
      * @throws java.lang.Exception ukoliko sistemska operacija u bilo kom

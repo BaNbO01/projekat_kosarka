@@ -19,30 +19,55 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Log;
 
 /**
  *
- * @author Korisnik
+ * Klasa koja predstavlja sistemsku operaciju upisa podataka o izvrsenim sistemskim operacijama.
+ * Cuva podatke u json formatu koristeci gson biblioteku Google-a
+ * @author Boban Todic
  */
 @Service
 public class JSONLog {
 
+    /**
+     * Gson objekat za rad sa json-om
+     */
     private Gson gson;
 
+    /**
+     * Objekat ciji se tip smesta u json fajl
+     */
     private Log log;
     
+    /**
+     * Konstruktor koji postavlja vrednost gson objekta na vrednost prosledjenog parametra
+     * @param gson 
+     */
     public JSONLog(Gson gson) {
         this.gson = gson;
        
     }
 
+    /**
+     * Vraca objekat tipa Log
+     * @return Log objekat
+     */
     public Log getLog() {
         return log;
     }
 
+    /**
+     * Postavlja objekat Log na vrednost prosledjenog parametra
+     * @param log objekat tipa Log
+     */
     public void setLog(Log log) {
         this.log = log;
     }
     
     
-
+/**
+ * Metoda za upisivanje u json fajl
+ * Prvo se pokusava citati iz fajla ako on postoji, na to se dodaje Log objekat koji je prosledjen
+ * i smesta se u listu. Ta nova lista se pamti u json fajl
+ * @throws Exception ukoliko dodje do problema prilikom serijalizacije objekta u json
+ */
     public void izvrsi() throws Exception {
         List<Log> logovi = new ArrayList();
        try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/log.json"))){
