@@ -16,6 +16,8 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Tim;
 import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Utakmica;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOIzbrisiIgraca;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajIgraca;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajKolo;
+import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajLigu;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOSacuvajUtakmicu;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiIgraceFiltrirane;
 import rs.ac.bg.fon.ai.ProjekatKosarka.so.SOVratiKoloLige;
@@ -43,6 +45,8 @@ public class UIController {
     private SOVratiKoloLige soVratiKoloLige;
     private SOSacuvajUtakmicu soSacuvajUtakmicu;
     private SOVratiUtakmiceKola soVratiUtakmiceKola;
+    private SOSacuvajKolo soSacuvajKolo;
+    private SOSacuvajLigu soSacuvajLigu;
 
     @Autowired
     public void setsOVratiIgraceFiltrirane(SOVratiIgraceFiltrirane sOVratiIgraceFiltrirane) {
@@ -112,6 +116,16 @@ public class UIController {
         this.soVratiKoloLige = soVratiKoloLige;
     }
 
+    @Autowired
+    public void setSoSacuvajKolo(SOSacuvajKolo soSacuvajKolo) {
+        this.soSacuvajKolo = soSacuvajKolo;
+    }
+
+    @Autowired
+    public void setSoSacuvajLigu(SOSacuvajLigu soSacuvajLigu) {
+        this.soSacuvajLigu = soSacuvajLigu;
+    }
+
     public List<Tim> vratiSveTimove(Tim tim) throws Exception {
         soVratiSveTimove.izvrsi(tim);
         return (List<Tim>) soVratiSveTimove.getResult();
@@ -145,6 +159,14 @@ public class UIController {
     public List<Utakmica> vratiUtakmiceKola(Utakmica utakmica) throws Exception {
         soVratiUtakmiceKola.izvrsi(utakmica);
         return (List<Utakmica>) soVratiUtakmiceKola.getResult();
+    }
+
+    public void sacuvaj(Liga liga) throws Exception {
+        soSacuvajLigu.izvrsi(liga);
+    }
+
+    public void sacuvaj(Kolo kolo) throws Exception {
+        soSacuvajKolo.izvrsi(kolo);
     }
 
 }
