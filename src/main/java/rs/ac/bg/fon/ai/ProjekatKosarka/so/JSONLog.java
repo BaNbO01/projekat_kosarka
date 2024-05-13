@@ -26,6 +26,11 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.domain.Log;
 @Service
 public class JSONLog {
 
+	/**
+	 * Path na kome se nalazi json log fajl
+	 */
+	private String path="src/main/resources/log.json";
+	
     /**
      * Gson objekat za rad sa json-om
      */
@@ -62,6 +67,14 @@ public class JSONLog {
     }
     
     
+public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 /**
  * Metoda za upisivanje u json fajl
  * Prvo se pokusava citati iz fajla ako on postoji, na to se dodaje Log objekat koji je prosledjen
@@ -70,7 +83,7 @@ public class JSONLog {
  */
     public void izvrsi() throws Exception {
         List<Log> logovi = new ArrayList();
-       try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/log.json"))){
+       try(BufferedReader br = new BufferedReader(new FileReader(path))){
            Type type = new TypeToken<List<Log>>() {}.getType();
            List<Log> lista = gson.fromJson(br, type);
            for (Log log1 : lista) {
@@ -82,7 +95,7 @@ public class JSONLog {
        }
        logovi.add(log);
         System.out.println("ok");
-        try(PrintWriter pw = new PrintWriter(new File("src/main/resources/log.json"))){
+        try(PrintWriter pw = new PrintWriter(new File(path))){
             gson.toJson(logovi, pw);
             System.out.println("Uspesno upisano");
         }catch(Exception e){

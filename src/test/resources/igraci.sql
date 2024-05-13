@@ -13,6 +13,7 @@ insert  into `tim`(`timID`,`naziv`,`gradId`,`drzavaID`) values
 (4,'SPD Radnicki',5,1);
 
 insert  into `igraci`(`igracId`,`ime`,`prezime`,`broj`,`datum`,`visina`,`pozicija`,`drzavaId`,`timId`) values 
-(4,'Luka','Cerovina',3,'2001-04-15',201,'PG',2,1),
+(4,'Luka','Cerovina',3,'2001-04-15',203,'PG',2,1),
 (7,'Boban','Todic',3,'2024-04-21',195,'C',8,1),
-(8,'Boban','Todic',4,'2002-04-21',195,'PF',5,4);
+(8,'Predrag','Danilovic',6,'1995-02-21',203,'PF',1,4),
+(9,'Goran','Tomic',4,'1999-03-27',206,'PF',5,1);

@@ -55,10 +55,11 @@ class SOVratiSveIgraceTest extends ApstraktnaSistemskaOperacijaTest {
 		 try {
 			test.izvrsavanjeOperacije(new Igraci());
 			List<Igraci> listaIgraci = (List<Igraci>)test.getResult();
-			assertEquals(3, listaIgraci.size());
+			assertEquals(4, listaIgraci.size());
 			assertEquals(4,listaIgraci.get(0).getIgracID());
 			assertEquals(7,listaIgraci.get(1).getIgracID());
 			assertEquals(8,listaIgraci.get(2).getIgracID());
+			assertEquals(9,listaIgraci.get(3).getIgracID());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			fail(e.getMessage());
