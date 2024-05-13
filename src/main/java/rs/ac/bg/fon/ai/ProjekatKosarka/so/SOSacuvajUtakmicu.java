@@ -103,8 +103,8 @@ public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
                 }
                 else{
                     kosRazlika = utakmica.getBrojKosevaTima2()-utakmica.getBrojKosevaTima1();
-                     tabelaTim2.setBrojPobeda(tabelaTim2.getBrojPoraza()+1);
-                    tabelaTim1.setBrojPoraza(tabelaTim1.getBrojPobeda() + 1);
+                     tabelaTim2.setBrojPobeda(tabelaTim2.getBrojPobeda()+1);
+                    tabelaTim1.setBrojPoraza(tabelaTim1.getBrojPoraza() + 1);
                     tabelaTim1.setKosRazlika(tabelaTim1.getKosRazlika() - kosRazlika);
                     tabelaTim2.setKosRazlika(tabelaTim2.getKosRazlika() + kosRazlika);
                 }

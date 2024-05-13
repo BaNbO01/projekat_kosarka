@@ -1,36 +1,33 @@
 package rs.ac.bg.fon.ai.ProjekatKosarka;
 
-import java.util.List;
-import javax.swing.JDialog;
+import java.awt.GraphicsEnvironment;
 
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
 
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.MainFrame;
 
-
 @Component
+@Profile("prod")
 public class Main implements ApplicationRunner {
 
-	
-	
-        
-      
-        MainFrame frame;
+	@Autowired
+	ApplicationContext applicationContext;
 
-          @Autowired
-    public void setFrame(MainFrame frame) {
-        this.frame = frame;
-    }
+	MainFrame frame;
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
 		
-            frame.setVisible(true);
+		
+			frame = applicationContext.getBean(MainFrame.class);
+			frame.setVisible(true);
+		
 	}
-       
 
 }

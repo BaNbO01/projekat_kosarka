@@ -1,0 +1,14 @@
+DELETE FROM utakmica;
+DELETE FROM kolo;
+DELETE FROM tabela;
+DELETE FROM liga;
+DELETE FROM igraci;
+DELETE FROM tim;
+DELETE FROM grad;
+DELETE FROM drzava;
+
+
+
+
+
+

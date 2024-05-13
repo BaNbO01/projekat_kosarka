@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.igraci.IgraciPretraziFrame;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.liga.CreateFixtureForm;
@@ -24,6 +25,7 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.view.utakmice.ShowMatchesByFixtureFrame;
  * @author Korisnik
  */
 @Component
+@Scope("prototype")
 public class MainFrame extends javax.swing.JFrame {
 
     private boolean themeDark;
