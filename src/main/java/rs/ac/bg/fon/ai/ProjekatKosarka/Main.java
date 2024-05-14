@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import rs.ac.bg.fon.ai.ProjekatKosarka.audio.AudioNit;
 
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.MainFrame;
 
@@ -16,6 +17,7 @@ import rs.ac.bg.fon.ai.ProjekatKosarka.view.MainFrame;
 @Profile("prod")
 public class Main implements ApplicationRunner {
 
+        AudioNit audioNit;
 	@Autowired
 	ApplicationContext applicationContext;
 
@@ -24,9 +26,12 @@ public class Main implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		
+                       
+                        
 			frame = applicationContext.getBean(MainFrame.class);
 			frame.setVisible(true);
+                        audioNit = new AudioNit("music");
+               audioNit.start();
 		
 	}
 

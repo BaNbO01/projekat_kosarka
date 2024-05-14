@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import rs.ac.bg.fon.ai.ProjekatKosarka.audio.AudioNit;
 import rs.ac.bg.fon.ai.ProjekatKosarka.panel.BackgroundPanel;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.igraci.IgraciPretraziFrame;
 import rs.ac.bg.fon.ai.ProjekatKosarka.view.liga.CreateFixtureForm;
@@ -41,6 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
     private ShowMatchesByFixtureFrame showMatchesByFixtureFrame;
     private CreateLeagueForm createLeagueForm;
     private CreateFixtureForm createFixtureForm;
+    private AudioNit audioNit;
 
     /**
      * Creates new form MainFrame
@@ -304,6 +306,7 @@ public class MainFrame extends javax.swing.JFrame {
           
             
               pack();
+               
              
         } catch (Exception e) {
             e.printStackTrace();
