@@ -78,9 +78,13 @@ public class Liga {
 
     /**
      * Postavlja id lige na vrednost prosledjenog parametra
+     * Liga id ne sme da bude null
      * @param ligaId Id lige tipa Long
+     * @throws java.lang.IllegalArgumentException ukoliko je id lige null
      */
     public void setLigaId(Long ligaId) {
+    	if(ligaId==null)
+    		throw new IllegalArgumentException("Liga id ne sme da bude null");
         this.ligaId = ligaId;
     }
 
@@ -95,9 +99,13 @@ public class Liga {
     
     /**
      * Postavlja naziv lige na vrednost prosledjenog parametra
+     * Naziv ne sme biti prazan
      * @param naziv Naziv lige
+     * @throws java.lang.IllegalArgumentException ukoliko je naziv prazan string
      */
     public void setNaziv(String naziv) {
+    	if(naziv.isBlank())
+    		throw new IllegalArgumentException("Naziv ne sme da bude prazan");
         this.naziv = naziv;
     }
 
@@ -112,9 +120,13 @@ public class Liga {
 
     /**
      * Postavlja drzavu iz koje dolazi liga na vrednost unetog parametra
+     * Drzava ne sme da bude null
      * @param drzavaId Objekat klase Drzava
+     * @throws java.lang.IllegalArgumentException ukoliko je drzava null
      */
     public void setDrzavaId(Drzava drzavaId) {
+    	if(drzavaId==null) 
+    		throw new IllegalArgumentException("Drzava ne sme da bude null");
         this.drzavaId = drzavaId;
     }
 

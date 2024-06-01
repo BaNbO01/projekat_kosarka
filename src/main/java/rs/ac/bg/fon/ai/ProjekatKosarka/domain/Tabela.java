@@ -168,9 +168,13 @@ public class Tabela {
 
     /**
      * Postavlja ligu ,na koju se odnosi tabela ,na vrednost prosledjenog parametra
+     * Liga ne sme da bude null
      * @param liga Objekat klase Liga
+     * @throws java.lang.IllegalArgumentException ukoliko je liga null
      */
     public void setLiga(Liga liga) {
+    	if(liga==null)
+    		throw new IllegalArgumentException("Liga ne sme da bude null");
         this.liga = liga;
     }
 

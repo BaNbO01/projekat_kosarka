@@ -32,20 +32,15 @@ public class SOSacuvajLigu extends ApstraktnaSistemskaOperacija {
 
     /**
      * Validacija igraca pre samog cuvanja
-     * Objekat mora biti tipa Liga, da njegova drzava nije null, da naziv lige nije prazan
+     * Objekat mora biti tipa Liga
      * @param o Objekat nad kojim se vrsi validacija
-     * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Liga,
-     * ako je naziv lige prazan ili ako je drzava null
+     * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Liga
+     * 
      */
     @Override
     protected void validate(Object o) throws Exception {
         if (o instanceof Liga l) {
-            if (l.getDrzavaId() == null) {
-                throw new IllegalArgumentException("Liga mora imati drzavu iz koje dolazi");
-            }
-            if (l.getNaziv().isBlank()) {
-                throw new IllegalArgumentException("Liga mora imati neki naziv");
-            }
+          
         } else {
             throw new IllegalArgumentException("Prosledjeni tip nije klase Liga");
         }

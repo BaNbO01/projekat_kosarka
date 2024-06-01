@@ -30,16 +30,14 @@ public class SOVratiUtakmiceKola extends ApstraktnaSistemskaOperacija {
 
         /**
          * Validacija pre samog vracanja liga
-         * Objekat mora biti tipa Utakmica i njegovo kolo ne sme biti null
+         * Objekat mora biti tipa Utakmica 
          * @param  o Objekat nad kojim se vrsi validacija
-         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Utakmica ili ako je njegovo kolo null
+         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Utakmica 
          */
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Utakmica u) {
-			if(u.getKolo()==null ) {
-				throw new IllegalArgumentException("Prosledjeni objekat utakmica nije validan");
-			}
+			
 		}
 		else {
 			throw new IllegalArgumentException("Prosledjeni objekat nije klase Utakmica");

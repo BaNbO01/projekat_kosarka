@@ -147,9 +147,13 @@ public class Utakmica{
 
     /**
      * Postavlja domaci tim na vrednost prosledjenog parametra
+     * Tim ne sme da bude null
      * @param timid1 Objekat klase Tim
+     * @throws java.lang.IllegalArgumentException ukoliko je tim null
      */
     public void setTimid1(Tim timid1) {
+    	if(timid1==null)
+    		throw new IllegalArgumentException("Tim ne sme da bude null");
         this.timid1 = timid1;
     }
 
@@ -163,9 +167,13 @@ public class Utakmica{
 
     /**
      * Postavlja gostujuci tim na vrednost prosledjenog parametra
+     * Tim ne sme da bude null
      * @param timid2 Objekat klase Tim
+     * @throws java.lang.IllegalArgumentException ukoliko je tim null
      */
     public void setTimid2(Tim timid2) {
+    	if(timid2==null)
+    		throw new IllegalArgumentException("Tim ne sme da bude null");
         this.timid2 = timid2;
     }
 
@@ -179,9 +187,13 @@ public class Utakmica{
 
     /**
      * Postavlja kolo na vrednost prosledjenog parametra
+     * Kolo ne sme da bude null
      * @param kolo Objekat klase Kolo
+     * @throws java.lang.IllegalArgumentException ukoliko je kolo null
      */
     public void setKolo(Kolo kolo) {
+    	if(kolo==null)
+    		throw new IllegalArgumentException("Kolo ne sme biti null");
         this.kolo = kolo;
     }
 

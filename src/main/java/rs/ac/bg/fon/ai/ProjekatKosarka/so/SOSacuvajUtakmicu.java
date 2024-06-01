@@ -36,19 +36,15 @@ public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
         
         /**
          * Validacija igraca pre samog cuvanja
-         * Prosledjeni objekat mora biti tipa Utakmica, njegovi timovi ne smeju biti null kao i njigovi id, ne sme biti null ni kolo
+         * Prosledjeni objekat mora biti tipa Utakmica
          * 
          * @param o Objekat nad kojim se vrsi validacija
-         * @throws java.lang.IllegalArgumentException ukoliko su timovi null,
-         * njihovi id null, 
-         * ako je kolo null
+         * @throws java.lang.IllegalArgumentException ukoliko prosledjeni objekat nije tipa Utakmica
          */
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Utakmica u) {
-			if(u.getTimid1()==null || u.getTimid1().getTimId()==null || u.getTimid2()==null || u.getTimid2().getTimId()==null || u.getKolo()==null) {
-				throw new IllegalArgumentException("Objekat utakmica nije validan");
-			}
+			
 		}else {
 		throw new IllegalArgumentException("Prosledjeni objekat nije klase Utakmica");
 		}

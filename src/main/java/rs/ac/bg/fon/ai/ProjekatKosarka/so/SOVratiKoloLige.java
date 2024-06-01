@@ -31,16 +31,14 @@ public class SOVratiKoloLige extends ApstraktnaSistemskaOperacija {
 
     /**
      * Validacija igraca pre samog cuvanja
-     * Prosledjeni objekat mora biti tipa Kolo, njegova liga ne sme biti null
+     * Prosledjeni objekat mora biti tipa Kolo
      * @param o Objekat nad kojim se vrsi validacija
-     * @throws java.lang.IllegalArgumentException ukoliko prosledjeni objekat nije tipa Kolo, ili ako je liga kola null 
+     * @throws java.lang.IllegalArgumentException ukoliko prosledjeni objekat nije tipa Kolo
      */
     @Override
     protected void validate(Object o) throws Exception {
         if (o instanceof Kolo k) {
-            if (k.getLiga() == null) {
-                throw new IllegalArgumentException("Kolo se mora pretraziti preko lige, a ona je null");
-            }
+           
         } else {
             throw new IllegalArgumentException("Prosledjeni objekat nije klase Kolo");
         }

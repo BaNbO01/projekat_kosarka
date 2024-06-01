@@ -33,16 +33,13 @@ public class SOSacuvajKolo extends ApstraktnaSistemskaOperacija {
 	
         /**
          *  Validacija igraca pre samog cuvanja
-         * Za prosledjeni objekat, liga ne sme biti null
+         * Prosledjeni objekat mora biti tipa Kolo
          * @param o Objekat nad kojim se vrsi validacija
-         * @throws java.lang.IllegalArgumentException ukoliko je liga null ili ako objekat nije tipa Kolo
+         * @throws java.lang.IllegalArgumentException ako objekat nije tipa Kolo
          */
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Kolo k) {
-			if(k.getLiga()==null)
-				throw new IllegalArgumentException("Prosledjeno kolo mora da pripada nekoj ligi");
-			
 		}
 		else
 		{

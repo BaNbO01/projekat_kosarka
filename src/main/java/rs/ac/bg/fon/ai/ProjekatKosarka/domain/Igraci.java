@@ -114,7 +114,9 @@ public class Igraci {
     
     /**
      * Konstruktor koji kao parametar prima id igraca
+     * 
      * @param igracID Id igraca
+     * 
      */
     public Igraci(Long igracID) {
         this.igracID = igracID;
@@ -131,9 +133,13 @@ public class Igraci {
 
     /**
      * Postavlja id igraca na prosledjenu vrednost parametra
+     * Id igraca ne sme da bude null
      * @param igracID Id igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je id igraca null
      */
     public void setIgracID(Long igracID) {
+    	if(igracID==null)
+    		throw new IllegalArgumentException("Igrac mora imati neki id");
         this.igracID = igracID;
     }
 /**
@@ -146,11 +152,15 @@ public class Igraci {
     
     /**
      * Postavlja ime igraca na vrednost prosledjenog parametra
+     * Ime mora da ima najmanje dva karaktera
      * @param ime Ime igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je ime prazan string ili ako ima manje od dva karaktera
      * 
      */
 
     public void setIme(String ime) {
+    	if(ime.isBlank() || ime.length()<2)
+    		throw new IllegalArgumentException("Ime mora biti popunjeno i sadrzati bar 2 karaktera");
         this.ime = ime;
     }
 
@@ -164,9 +174,14 @@ public class Igraci {
 
     /**
      * Postavlja prezime na vrednost prosledjenog parametra
+     * Prezime mora da ima najmanje dva karaktera
      * @param prezime Prezime igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je prezime prazan string ili ako ima manje od dva karaktera
      */
     public void setPrezime(String prezime) {
+    	  if (prezime.isBlank() || prezime.length() < 2) {
+              throw new IllegalArgumentException("Prezime mora biti popunjeno i sadrzati bar 2 karaktera");
+          }
         this.prezime = prezime;
     }
 
@@ -244,9 +259,14 @@ public class Igraci {
 
     /**
      * Postavlja kao objekat Drzava na vrednost prosledjenog parametra
+     * Drzava ne sme da bude null
      * @param drzavaId Objekat drzava klase Drzava
+     * @throws java.lang.IllegalArgumentException ukoliko je drzava null
+     * 
      */
     public void setDrzavaId(Drzava drzavaId) {
+    	if(drzavaId==null)
+    		throw new IllegalArgumentException("Igrac mora dolaziti iz neke zemlje");
         this.drzavaId = drzavaId;
     }
 

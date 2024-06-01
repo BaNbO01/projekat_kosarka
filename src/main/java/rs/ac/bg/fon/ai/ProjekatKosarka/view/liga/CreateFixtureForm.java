@@ -39,6 +39,7 @@ public class CreateFixtureForm extends javax.swing.JDialog {
         super(parent, modal);
         this.controller = controller;
         initComponents();
+        setLocationRelativeTo(null);
         prepareForm();
     }
 
@@ -67,28 +68,31 @@ public class CreateFixtureForm extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Trenutan broj kola");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 108, 181, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 181, -1));
 
-        txtBrojKola.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        getContentPane().add(txtBrojKola, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 108, 167, -1));
+        txtBrojKola.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        getContentPane().add(txtBrojKola, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 167, 40));
 
-        getContentPane().add(cmbLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 19, 393, 34));
+        cmbLiga.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        getContentPane().add(cmbLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 510, 34));
 
+        btnSacuvajKolo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSacuvajKolo.setText("Dodaj novo kolo");
         btnSacuvajKolo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSacuvajKoloActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSacuvajKolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 116, 139, 34));
+        getContentPane().add(btnSacuvajKolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 34));
 
+        btnUkupnoKola.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUkupnoKola.setText("Prikazi trenutni broj kola");
         btnUkupnoKola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUkupnoKolaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUkupnoKola, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 71, 172, 31));
+        getContentPane().add(btnUkupnoKola, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 320, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
