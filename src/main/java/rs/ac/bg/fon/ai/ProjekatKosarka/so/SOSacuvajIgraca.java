@@ -42,15 +42,7 @@ public class SOSacuvajIgraca extends ApstraktnaSistemskaOperacija {
     @Override
     protected void validate(Object o) throws Exception {
         if (o instanceof Igraci i) {
-            if (i.getDrzavaId() == null) {
-                throw new IllegalArgumentException("Igrac mora dolaziti iz neke zemlje");
-            }
-            if (i.getIme().isBlank() || i.getIme().length() < 2) {
-                throw new IllegalArgumentException("Ime mora biti popunjeno i sadrzati bar 2 karaktera");
-            }
-            if (i.getPrezime().isBlank() || i.getPrezime().length() < 2) {
-                throw new IllegalArgumentException("Ime mora biti popunjeno i sadrzati bar 2 karaktera");
-            }
+            
 
         } else {
             throw new IllegalArgumentException("Prosledjeni objekat nije tipa Igrac");

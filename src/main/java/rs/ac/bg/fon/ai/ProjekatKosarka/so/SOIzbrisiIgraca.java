@@ -37,9 +37,6 @@ public class SOIzbrisiIgraca extends ApstraktnaSistemskaOperacija {
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Igraci i) {
-			if(i.getIgracID()==null)
-				throw new IllegalArgumentException("Igrac mora imati neki id da bi se obrisao");
-			
 		}
 		else
 		{

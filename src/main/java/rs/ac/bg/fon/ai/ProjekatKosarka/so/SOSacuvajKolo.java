@@ -40,9 +40,6 @@ public class SOSacuvajKolo extends ApstraktnaSistemskaOperacija {
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Kolo k) {
-			if(k.getLiga()==null)
-				throw new IllegalArgumentException("Prosledjeno kolo mora da pripada nekoj ligi");
-			
 		}
 		else
 		{

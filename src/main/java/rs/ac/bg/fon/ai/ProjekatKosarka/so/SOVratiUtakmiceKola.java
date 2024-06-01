@@ -37,9 +37,7 @@ public class SOVratiUtakmiceKola extends ApstraktnaSistemskaOperacija {
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Utakmica u) {
-			if(u.getKolo()==null ) {
-				throw new IllegalArgumentException("Prosledjeni objekat utakmica nije validan");
-			}
+			
 		}
 		else {
 			throw new IllegalArgumentException("Prosledjeni objekat nije klase Utakmica");

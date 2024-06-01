@@ -40,12 +40,7 @@ public class SOSacuvajLigu extends ApstraktnaSistemskaOperacija {
     @Override
     protected void validate(Object o) throws Exception {
         if (o instanceof Liga l) {
-            if (l.getDrzavaId() == null) {
-                throw new IllegalArgumentException("Liga mora imati drzavu iz koje dolazi");
-            }
-            if (l.getNaziv().isBlank()) {
-                throw new IllegalArgumentException("Liga mora imati neki naziv");
-            }
+          
         } else {
             throw new IllegalArgumentException("Prosledjeni tip nije klase Liga");
         }

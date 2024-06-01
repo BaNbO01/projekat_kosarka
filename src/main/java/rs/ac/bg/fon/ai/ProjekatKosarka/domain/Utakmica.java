@@ -152,6 +152,8 @@ public class Utakmica{
      * @throws java.lang.IllegalArgumentException ukoliko je tim null
      */
     public void setTimid1(Tim timid1) {
+    	if(timid1==null)
+    		throw new IllegalArgumentException("Tim ne sme da bude null");
         this.timid1 = timid1;
     }
 
@@ -170,6 +172,8 @@ public class Utakmica{
      * @throws java.lang.IllegalArgumentException ukoliko je tim null
      */
     public void setTimid2(Tim timid2) {
+    	if(timid2==null)
+    		throw new IllegalArgumentException("Tim ne sme da bude null");
         this.timid2 = timid2;
     }
 
@@ -188,6 +192,8 @@ public class Utakmica{
      * @throws java.lang.IllegalArgumentException ukoliko je kolo null
      */
     public void setKolo(Kolo kolo) {
+    	if(kolo==null)
+    		throw new IllegalArgumentException("Kolo ne sme biti null");
         this.kolo = kolo;
     }
 

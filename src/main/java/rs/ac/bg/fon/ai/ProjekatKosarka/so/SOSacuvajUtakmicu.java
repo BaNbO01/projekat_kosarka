@@ -44,9 +44,7 @@ public class SOSacuvajUtakmicu extends ApstraktnaSistemskaOperacija {
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Utakmica u) {
-			if(u.getTimid1()==null || u.getTimid1().getTimId()==null || u.getTimid2()==null || u.getTimid2().getTimId()==null || u.getKolo()==null) {
-				throw new IllegalArgumentException("Objekat utakmica nije validan");
-			}
+			
 		}else {
 		throw new IllegalArgumentException("Prosledjeni objekat nije klase Utakmica");
 		}

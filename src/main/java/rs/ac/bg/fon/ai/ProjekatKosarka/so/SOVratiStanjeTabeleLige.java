@@ -42,8 +42,7 @@ public class SOVratiStanjeTabeleLige extends ApstraktnaSistemskaOperacija {
 	@Override
 	protected void validate(Object o) throws Exception {
 		if(o instanceof Tabela t) {
-			if(t.getLiga()==null || t.getLiga().getLigaId()==null)
-                         throw new IllegalArgumentException("Prosledjeni objekat nije validan");   
+			
 		}
 		else
 		{

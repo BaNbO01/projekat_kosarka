@@ -38,9 +38,7 @@ public class SOVratiKoloLige extends ApstraktnaSistemskaOperacija {
     @Override
     protected void validate(Object o) throws Exception {
         if (o instanceof Kolo k) {
-            if (k.getLiga() == null) {
-                throw new IllegalArgumentException("Kolo se mora pretraziti preko lige, a ona je null");
-            }
+           
         } else {
             throw new IllegalArgumentException("Prosledjeni objekat nije klase Kolo");
         }

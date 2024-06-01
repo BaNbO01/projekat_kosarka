@@ -173,6 +173,8 @@ public class Tabela {
      * @throws java.lang.IllegalArgumentException ukoliko je liga null
      */
     public void setLiga(Liga liga) {
+    	if(liga==null)
+    		throw new IllegalArgumentException("Liga ne sme da bude null");
         this.liga = liga;
     }
 
