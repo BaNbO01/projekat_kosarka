@@ -83,6 +83,8 @@ public class Liga {
      * @throws java.lang.IllegalArgumentException ukoliko je id lige null
      */
     public void setLigaId(Long ligaId) {
+    	if(ligaId==null)
+    		throw new IllegalArgumentException("Liga id ne sme da bude null");
         this.ligaId = ligaId;
     }
 

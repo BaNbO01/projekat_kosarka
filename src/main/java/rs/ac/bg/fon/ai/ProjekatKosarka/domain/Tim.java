@@ -94,6 +94,8 @@ public class Tim {
      * @throws java.lang.IllegalArgumentException ukoliko je tim id null
      */
     public void setTimId(Long timId) {
+    	if(timId==null)
+    		throw new IllegalArgumentException("Tim id ne sme da bude null");
         this.timId = timId;
     }
 
