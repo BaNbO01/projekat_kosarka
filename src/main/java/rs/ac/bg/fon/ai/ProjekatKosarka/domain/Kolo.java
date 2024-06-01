@@ -90,7 +90,9 @@ public class Kolo  {
 
     /**
      * Postavlja ligu kola na vrednost prosledjenog parametra
+     * Liga ne sme biti null
      * @param liga Objekat tipa Liga
+     * @throws java.lang.IllegalArgumentException ukoliko je liga null
      */
     public void setLiga(Liga liga) {
         this.liga = liga;
