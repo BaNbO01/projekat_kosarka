@@ -42,6 +42,11 @@ class LigaTest {
 	}
 
 	@Test
+	void testSetIdNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->liga1.setLigaId(null));
+	}
+	
+	@Test
 	void testSetLigaId() {
 		liga1.setLigaId(1L);
 		assertEquals(1L, liga1.getLigaId());
@@ -52,7 +57,18 @@ class LigaTest {
 		liga1.setNaziv("KLS");
 		assertEquals("KLS", liga1.getNaziv());
 	}
+	
+	@Test
+	void testSetNazivBlank() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->liga1.setNaziv(""));
+	}
 
+	
+	@Test
+	void testSetDrzavaIdNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->liga1.setDrzavaId(null));
+	}
+	
 	@Test
 	void testSetDrzavaId() {
 		Drzava d = new Drzava();

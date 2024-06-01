@@ -89,6 +89,12 @@ class TabelaTest {
 	}
 
 	@Test
+	void testSetLigaNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->tabela1.setLiga(null));
+	}
+	
+	
+	@Test
 	void testSetLiga() {
 		Liga l = new Liga();
 		tabela1.setLiga(l);

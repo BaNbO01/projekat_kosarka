@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.ProjekatKosarka.domain;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Calendar;
@@ -59,6 +60,20 @@ class IgraciTest {
 		assertEquals(2L, i1.getIgracID());
 	}
 
+	
+	@Test
+	void testSetIdNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->igraci1.setIgracID(null));
+	}
+	
+	@Test
+	void testId() {
+		igraci1.setIgracID(2L);
+		assertEquals(2L, igraci1.getIgracID());
+	}
+	
+	
+	
 	@Test
 	void testSetIme() {
 		igraci1.setIme("Boban");
@@ -66,17 +81,24 @@ class IgraciTest {
 	}
 	
 	@Test
-	void testSetImeNull() {
-		igraci1.setIme(null);
-		assertEquals("Boban", igraci1.getIme());
+	void testSetImePrazanString() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->igraci1.setIme(""));
+	}
+	
+	@Test
+	void testSetImeManjeOdDvaKaraktera() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->igraci1.setIme("p"));
 	}
 
 	@Test
-	void testSetPrezime() {
-		igraci1.setPrezime("Todic");
-		assertEquals("Todic", igraci1.getPrezime());
+	void testSetPrezimePrazanString() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->igraci1.setPrezime(""));
 	}
-
+	
+	@Test
+	void testSetPrezimeManjeOdDvaKaraktera() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->igraci1.setPrezime("p"));
+	}
 	@Test
 	void testSetBroj() {
 		igraci1.setBroj(2);

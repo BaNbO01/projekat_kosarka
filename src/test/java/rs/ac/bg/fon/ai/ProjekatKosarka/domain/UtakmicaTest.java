@@ -67,7 +67,18 @@ class UtakmicaTest {
 		utakmica1.setBrojKosevaTima2(2);
 		assertEquals(2, utakmica1.getBrojKosevaTima2());
 	}
+	
+	@Test
+	void testSetTimd1Null() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->utakmica1.setTimid1(null));
+	}
 
+	
+	@Test
+	void testSetTimd2Null() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->utakmica1.setTimid2(null));
+	}
+	
 	@Test
 	void testSetTimid1() {
 		Tim tim = new Tim();
@@ -82,6 +93,12 @@ class UtakmicaTest {
 		assertEquals(tim, utakmica1.getTimid2());
 	}
 
+	
+	@Test
+	void testSetKoloNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->utakmica1.setKolo(null));
+	}
+	
 	@Test
 	void testSetKolo() {
 		Kolo k = new Kolo();

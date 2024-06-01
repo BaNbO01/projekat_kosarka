@@ -55,6 +55,11 @@ class KoloTest {
 		kolo1.setLiga(l);
 		assertEquals(l, kolo1.getLiga());
 	}
+	
+	@Test
+	void testSetLigaNull() {
+		assertThrows(java.lang.IllegalArgumentException.class, ()->kolo1.setLiga(null));
+	}
 
 	@Test
 	void testEqualsIstaLokacija() {
