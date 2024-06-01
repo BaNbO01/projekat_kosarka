@@ -159,7 +159,7 @@ public class Igraci {
      */
 
     public void setIme(String ime) {
-    	if(ime.isBlank() || ime.length()<2)
+    	if(ime!=null && (ime.isBlank() || ime.length()<2))
     		throw new IllegalArgumentException("Ime mora biti popunjeno i sadrzati bar 2 karaktera");
         this.ime = ime;
     }
@@ -179,7 +179,7 @@ public class Igraci {
      * @throws java.lang.IllegalArgumentException ukoliko je prezime prazan string ili ako ima manje od dva karaktera
      */
     public void setPrezime(String prezime) {
-    	  if (prezime.isBlank() || prezime.length() < 2) {
+    	  if (prezime!=null && (prezime.isBlank() || prezime.length() < 2)) {
               throw new IllegalArgumentException("Prezime mora biti popunjeno i sadrzati bar 2 karaktera");
           }
         this.prezime = prezime;
