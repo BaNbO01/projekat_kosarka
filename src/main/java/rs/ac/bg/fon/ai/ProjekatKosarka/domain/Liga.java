@@ -78,7 +78,9 @@ public class Liga {
 
     /**
      * Postavlja id lige na vrednost prosledjenog parametra
+     * Liga id ne sme da bude null
      * @param ligaId Id lige tipa Long
+     * @throws java.lang.IllegalArgumentException ukoliko je id lige null
      */
     public void setLigaId(Long ligaId) {
         this.ligaId = ligaId;

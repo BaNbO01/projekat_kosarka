@@ -89,7 +89,9 @@ public class Tim {
 
     /**
      * Postavlja id tima na vrednost prosledjenog parametra
+     * Tim id ne sme da bude null
      * @param timId Id tima tipa Long
+     * @throws java.lang.IllegalArgumentException ukoliko je tim id null
      */
     public void setTimId(Long timId) {
         this.timId = timId;
