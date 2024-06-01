@@ -34,10 +34,10 @@ public class SOVratiStanjeTabeleLige extends ApstraktnaSistemskaOperacija {
 	
         /**
          * Validacija pre samog vracanja tabela
-         * Objekat mora biti tipa Tabela, njegova liga ne sme biti null, niti id lige
+         * Objekat mora biti tipa Tabela
          * 
          * @param o Objekat nad kojim se vrsi validacija
-         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Tabela, ili ako je liga null ili id lige
+         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Tabela
          */
 	@Override
 	protected void validate(Object o) throws Exception {

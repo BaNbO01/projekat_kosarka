@@ -32,12 +32,12 @@ public class SOSacuvajIgraca extends ApstraktnaSistemskaOperacija {
 
     
     /**
-     * Validacija igraca pre samog brisanja
-     * Prosledjeni objekat ne sme biti null, ime i prezime ne smeju da imaju manje od 2 karaktera
+     * Validacija igraca pre samog cuvanja
+     * Prosledjeni objekat mora biti tipa Igraci
      * 
      * @param o Objekat nad kojim se vrsi validacija
      * @throws java.lang.IllegalArgumentException ukoliko prosledjeni objekat
-     * nije tipa Igraci, ako je drzava null, ako je njegovo ime ili prezime manje od karaktera
+     * nije tipa Igraci
      */
     @Override
     protected void validate(Object o) throws Exception {
