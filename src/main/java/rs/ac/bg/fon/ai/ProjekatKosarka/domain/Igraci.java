@@ -114,7 +114,9 @@ public class Igraci {
     
     /**
      * Konstruktor koji kao parametar prima id igraca
+     * 
      * @param igracID Id igraca
+     * 
      */
     public Igraci(Long igracID) {
         this.igracID = igracID;
@@ -131,7 +133,9 @@ public class Igraci {
 
     /**
      * Postavlja id igraca na prosledjenu vrednost parametra
+     * Id igraca ne sme da bude null
      * @param igracID Id igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je id igraca null
      */
     public void setIgracID(Long igracID) {
         this.igracID = igracID;
@@ -146,7 +150,9 @@ public class Igraci {
     
     /**
      * Postavlja ime igraca na vrednost prosledjenog parametra
+     * Ime mora da ima najmanje dva karaktera
      * @param ime Ime igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je ime prazan string ili ako ima manje od dva karaktera
      * 
      */
 
@@ -164,7 +170,9 @@ public class Igraci {
 
     /**
      * Postavlja prezime na vrednost prosledjenog parametra
+     * Prezime mora da ima najmanje dva karaktera
      * @param prezime Prezime igraca
+     * @throws java.lang.IllegalArgumentException ukoliko je prezime prazan string ili ako ima manje od dva karaktera
      */
     public void setPrezime(String prezime) {
         this.prezime = prezime;
@@ -244,7 +252,10 @@ public class Igraci {
 
     /**
      * Postavlja kao objekat Drzava na vrednost prosledjenog parametra
+     * Drzava ne sme da bude null
      * @param drzavaId Objekat drzava klase Drzava
+     * @throws java.lang.IllegalArgumentException ukoliko je drzava null
+     * 
      */
     public void setDrzavaId(Drzava drzavaId) {
         this.drzavaId = drzavaId;

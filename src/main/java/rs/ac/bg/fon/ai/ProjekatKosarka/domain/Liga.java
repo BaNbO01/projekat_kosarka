@@ -95,7 +95,9 @@ public class Liga {
     
     /**
      * Postavlja naziv lige na vrednost prosledjenog parametra
+     * Naziv ne sme biti prazan
      * @param naziv Naziv lige
+     * @throws java.lang.IllegalArgumentException ukoliko je naziv prazan string
      */
     public void setNaziv(String naziv) {
         this.naziv = naziv;

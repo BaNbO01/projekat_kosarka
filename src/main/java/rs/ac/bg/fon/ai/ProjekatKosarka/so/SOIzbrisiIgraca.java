@@ -30,9 +30,9 @@ public class SOIzbrisiIgraca extends ApstraktnaSistemskaOperacija {
 	
         /**
          * Validacija igraca pre samog brisanja
-         * Prosledjeni objekat mora biti tipa Igraci i da njego id nije null
+         * Prosledjeni objekat mora biti tipa Igraci
          * @param o Objekat nad kojim se vrsi validacija
-         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Igraci ili ako je njegov id jednak null
+         * @throws java.lang.IllegalArgumentException ukoliko objekat nije tipa Igraci
          */
 	@Override
 	protected void validate(Object o) throws Exception {
