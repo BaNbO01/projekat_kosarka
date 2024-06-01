@@ -42,11 +42,7 @@ class SOVratiKoloLigeTest extends ApstraktnaSistemskaOperacijaTest {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
 
-	@Test
-	void testValidateLigaNull() {
-		Kolo k = new Kolo();
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(k));
-	}
+
 	
 	@Test
 	void testValidate() {

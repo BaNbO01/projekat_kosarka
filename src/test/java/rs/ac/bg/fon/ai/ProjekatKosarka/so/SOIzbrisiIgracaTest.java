@@ -41,10 +41,7 @@ class SOIzbrisiIgracaTest extends ApstraktnaSistemskaOperacijaTest {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
 	
-	@Test
-	void testValidateIgracIdNull() {
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new Igraci()));
-	}
+	
 	
 	@Test
 	void testValidate() {

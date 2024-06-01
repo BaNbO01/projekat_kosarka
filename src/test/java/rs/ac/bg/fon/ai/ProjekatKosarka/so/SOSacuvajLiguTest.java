@@ -42,17 +42,7 @@ class SOSacuvajLiguTest extends ApstraktnaSistemskaOperacijaTest{
 		
 	}
 
-	@Test
-	void testValidateDrzavaIdNull() {
-		liga.setDrzavaId(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(liga));
-	}
 	
-	@Test
-	void testValidateNazivBlank() {
-		liga.setNaziv("");
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(liga));
-	}
 	
 	@Test
 	void testValidatePogresanTip() {

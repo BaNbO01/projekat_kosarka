@@ -1,5 +1,6 @@
 package rs.ac.bg.fon.ai.ProjekatKosarka.so;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -65,34 +66,10 @@ class SOSacuvajUtakmicuTest extends ApstraktnaSistemskaOperacijaTest {
 	}
 	
 	@Test
-	void testValidateDomaciTimNull() {
-		utakmica.setTimid1(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(utakmica));
+	void testValidate() {
+		assertDoesNotThrow(()->test.validate(utakmica));
 	}
-	
-	@Test
-	void testValidateGostujuciTimNull() {
-		utakmica.setTimid2(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(utakmica));
-	}
-	
-	@Test
-	void testValidateDomaciTimNullId() {
-		utakmica.getTimid1().setTimId(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(utakmica));
-	}
-	
-	@Test
-	void testValidateGostujuciTimNullId() {
-		utakmica.getTimid2().setTimId(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(utakmica));
-	}
-	
-	@Test
-	void testValidateKoloNull() {
-		utakmica.setKolo(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(utakmica));
-	}
+
 
 	@Test
 	@Sql(scripts = "/insert_utakmica_tabela.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED))

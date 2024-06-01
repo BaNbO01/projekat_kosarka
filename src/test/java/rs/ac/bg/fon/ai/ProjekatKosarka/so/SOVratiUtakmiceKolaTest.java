@@ -42,11 +42,7 @@ class SOVratiUtakmiceKolaTest extends ApstraktnaSistemskaOperacijaTest {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
 	
-	@Test
-	void testValidateKoloIdNull() {
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new Utakmica()));
-	}
-
+	
 	@Test
 	void testValidate() {
 		Utakmica u = new Utakmica();

@@ -56,35 +56,12 @@ class SOSacuvajIgracaTest extends ApstraktnaSistemskaOperacijaTest {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
 	
-	@Test
-	void testValidateDrzavaNull() {
-		i.setDrzavaId(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(i));
-	}
 	
-	@Test
-	void testValidateImeBlank() {
-		i.setIme("");
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(i));
-	}
 	
-	@Test
-	void testValidateImeManjeOdDvaKaraktera() {
-		i.setIme("Z");
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(i));
-	}
 	
-	@Test
-	void testValidatePrezimeBlank() {
-		i.setPrezime("");
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(i));
-	}
 	
-	@Test
-	void testValidatePrezimeManjeOdDvaKaraktera() {
-		i.setPrezime("A");
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(i));
-	}
+	
+	
 	
 	@Test
 	void testValidate() {

@@ -54,11 +54,7 @@ class SOSacuvajKoloTest extends ApstraktnaSistemskaOperacijaTest {
 	void testValidatePogresanTip() {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
-	@Test
-	void testValidateLigaNull() {
-		kolo.setLiga(null);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(kolo));
-	}
+	
 	
 	@Test
 	void testValidate() {

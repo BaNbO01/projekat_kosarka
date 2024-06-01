@@ -64,6 +64,12 @@ class IgraciTest {
 		igraci1.setIme("Boban");
 		assertEquals("Boban", igraci1.getIme());
 	}
+	
+	@Test
+	void testSetImeNull() {
+		igraci1.setIme(null);
+		assertEquals("Boban", igraci1.getIme());
+	}
 
 	@Test
 	void testSetPrezime() {

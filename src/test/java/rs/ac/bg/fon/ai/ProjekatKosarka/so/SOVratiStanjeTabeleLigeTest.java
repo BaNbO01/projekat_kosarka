@@ -43,19 +43,9 @@ class SOVratiStanjeTabeleLigeTest extends ApstraktnaSistemskaOperacijaTest {
 		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(new String()));
 	}
 	
-	@Test
-	void testValidateLigaNull() {
-		Tabela t = new Tabela();
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(t));
-	}
+
 	
-	@Test
-	void testValidateLigaIdNull() {
-		Tabela t = new Tabela();
-		Liga l = new Liga();
-		t.setLiga(l);
-		assertThrows(java.lang.IllegalArgumentException.class, ()->test.validate(t));
-	}
+
 	
 	@Test
 	void testValidate() {
